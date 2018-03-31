@@ -81,7 +81,7 @@ task cucumberBasic() {
         javaexec {
             main = "cucumber.api.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['-p', 'html:build/cucumber-html-report', '--glue', 'com.automation', "--tags", "${tag}", 'src/test/resources']
+            args = ['-p', 'html:build/cucumber-html-report', '--glue', 'com.automation', 'src/test/resources']
         }
     }
 }
