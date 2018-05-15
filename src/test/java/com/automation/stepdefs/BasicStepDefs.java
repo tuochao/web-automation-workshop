@@ -14,6 +14,8 @@ import com.automation.pageobjects.GoogleStaticHomePage;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.concurrent.TimeUnit;
+
 public class BasicStepDefs {
     private WebDriver driver;
     private GoogleHomePage googleHomePage;
@@ -63,23 +65,10 @@ public class BasicStepDefs {
     }
 
     @When("^click search configure$")
-    public void click_search_configure() {
+    public void click_search_configure() throws Throwable {
         driver.findElement(By.cssSelector("#u1 > a.pf")).click();
         driver.findElement(By.cssSelector("#wrapper .bdpfmenu > a.setpref")).click();
+        Thread.sleep(2000);
         driver.findElement(By.cssSelector("#se-settting-2 > label:nth-child(4)")).click();
     }
-
-//    @Before
-//    public void beforeScenario() {
-//        ChromeOptions chromeOptions = new ChromeOptions();
-//        chromeOptions.addArguments("--headless");
-//        driver = new ChromeDriver(chromeOptions);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        googleHomePage = new GoogleHomePage(driver);
-//    }
-//
-//    @After
-//    public void afterScenario() {
-//        driver.quit();
-//    }
 }

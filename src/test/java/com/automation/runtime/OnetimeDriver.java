@@ -8,27 +8,27 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public class OnetimeDriver {
-    private WebDriver driver;
-
-    public OnetimeDriver() {
-        ChromeOptions chromeOptions = new ChromeOptions();
+//public class OnetimeDriver {
+//    private WebDriver driver;
+//
+//    public OnetimeDriver() {
+//        ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.addArguments("--headless");
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    @Before
-    public void beforeScenario() {
-        System.out.println("enter before hook");
-    }
-
-    @After
-    public void afterScenario() {
-        driver.quit();
-    }
-}
+//        driver = new ChromeDriver(chromeOptions);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//    }
+//
+//    public WebDriver getDriver() {
+//        return driver;
+//    }
+//
+//    @Before
+//    public void beforeScenario() {
+//        System.out.println("enter before hook");
+//    }
+//
+//    @After
+//    public void afterScenario() {
+//        driver.quit();
+//    }
+//}

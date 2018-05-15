@@ -23,7 +23,7 @@ public class SpecialOccasionPage extends BasePage {
     }
 
     public WebElement signInLink() {
-        return driver.findElement(By.cssSelector("#js_isNotLogin"));
+        return driver.findElement(By.cssSelector("#js_isNotLogin > a"));
     }
 
 }

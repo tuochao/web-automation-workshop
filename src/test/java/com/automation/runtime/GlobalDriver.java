@@ -20,7 +20,9 @@ public class GlobalDriver extends EventFiringWebDriver {
 
     static {
         ChromeOptions chromeOptions = new ChromeOptions();
-//        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--no-sandbox");
         REAL_DRIVER = new ChromeDriver(chromeOptions);
         REAL_DRIVER.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);

@@ -6,7 +6,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import static java.lang.Thread.sleep;
 import static org.junit.Assert.*;
@@ -53,7 +55,6 @@ public class FecShopDefs {
         accountPage.checkUserName(username);
     }
 
-
     @When("^user select product which contains \"(.*?)\"$")
     public void select_product_with_text(String name) {
         specialOccasionPage.productWithName(name).click();
@@ -69,6 +70,5 @@ public class FecShopDefs {
         assertTrue(cartPage.isProductExistInCart(name));
         sleep(5000);
     }
-
 
 }
