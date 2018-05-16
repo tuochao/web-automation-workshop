@@ -68,7 +68,6 @@ public class FecShopDefs {
     @Then("should see product which contains \"(.*?)\" in cart")
     public void check_product_with_name_in_cart(String name) throws InterruptedException{
         assertTrue(cartPage.isProductExistInCart(name));
-        sleep(5000);
     }
 
 }
