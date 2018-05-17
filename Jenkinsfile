@@ -2,22 +2,20 @@ node {
     try {
         notifyBuild('STARTED')
         timestamps {
-            ansiColor('xterm') {
-                stage('Preparation') {
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/master']],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [[$class: 'MessageExclusion', excludedMessage: '.*\\[no-build\\].*']],
-                        submoduleCfg: [],
-                        userRemoteConfigs: [[url: "git@github.com:tuochao/web-automation-workshop.git"]]
-                    ])
-                    // prepare docker image
-                    sh "ci/prepare-images.sh"
-                }
-                stage('Test') {
-                    sh 'ci/e2e-test.sh'
-                }
+            stage('Preparation') {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'MessageExclusion', excludedMessage: '.*\\[no-build\\].*']],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[url: "git@github.com:tuochao/web-automation-workshop.git"]]
+                ])
+                // prepare docker image
+                sh "ci/prepare-images.sh"
+            }
+            stage('Test') {
+                sh 'ci/e2e-test.sh'
             }
         }
     }
